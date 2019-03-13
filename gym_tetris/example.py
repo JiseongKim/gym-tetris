@@ -3,6 +3,7 @@ import os, sys
 
 import gym
 import gym_tetris
+from gym.wrappers.monitor import Monitor
 
 # The world's simplest agent!
 class RandomAgent(object):
@@ -26,7 +27,8 @@ if __name__ == '__main__':
     # will be namespaced). You can also dump to a tempdir if you'd
     # like: tempfile.mkdtemp().
     outdir = '/tmp/random-agent-results'
-    env.monitor.start(outdir, force=True, seed=0)
+    
+    Monitor(env,outdir,force=True)
 
     # This declaration must go *after* the monitor call, since the
     # monitor's seeding creates a new action_space instance with the

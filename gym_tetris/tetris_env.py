@@ -28,6 +28,10 @@ class TetrisEnv(gym.Env):
     def _get_image(self):
         return self.game_state.getImage()
 
+    def _seed(self, seed):
+        random.seed(seed)
+        np.random.seed
+        
     @property
     def _n_actions(self):
         return len(self._action_set)
